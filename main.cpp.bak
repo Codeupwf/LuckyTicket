@@ -1,0 +1,61 @@
+#include <iostream>
+#include <stdlib.h>
+#include <time.h>
+
+using namespace std;
+bool isNum(char* value)
+{
+	int i = 0;
+	while(value[i] != '\0')
+	{
+		int j = *value - '0';
+		if((j < 9) && (j >= 0))
+		{
+			i++;
+		}
+		else
+		{
+			cout<<"Error input, not numbers !"<< endl;
+			return false;
+		}
+	}
+	return true;
+}
+
+int main(int argc,char* argv[])
+{
+	//output result number
+	int iOutNumber;
+	//if there is no input arg, create 5 luck numbers as default output
+	if(argc < 2)
+	{
+		iOutNumber = 5;
+	}
+	if(argc >=2)
+	{
+		//judge input whether vaild or not 
+		if(!isNum(argv[1])
+		{
+			cout<<"invaild input, create 5 luck numbers as default!"<<endl;
+			iOutNumber = 5;
+		}
+		else
+		{
+			iOutNumber = atoi(argv[1]);
+		}
+	}
+
+	//init random seed
+	srand(time(NULL));
+	//outer loop
+	for(int i = 0; i < iOutNumber; i++)
+	{
+		
+		i = rand()%(10-1+1) + 1;
+		cout<< i<< endl;
+	}
+
+	return 0;
+	
+}
+
